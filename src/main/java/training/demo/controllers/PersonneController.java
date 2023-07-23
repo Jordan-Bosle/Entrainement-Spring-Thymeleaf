@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import training.demo.entities.Personne;
 import training.demo.repositories.PersonneRepository;
@@ -25,8 +26,11 @@ public class PersonneController {
     @GetMapping("/afficher-personne")
     public String displayPersonne(Model model)
     {
-        List<Personne> personnes = repository.findAll();
-        model.addAttribute("personne", personnes);
+        List<Personne> personne = repository.findAll();
+        model.addAttribute("personnes", personne);
         return "personne";
     }
+
+
+    public String deleteArticle(@PathVariable long id)
 }

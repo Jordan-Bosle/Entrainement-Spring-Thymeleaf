@@ -17,15 +17,17 @@
             <th> Nom </th>
             <th> Prenom </th>
             <th> Age </th>
+            <th> Action </th>
 
         </tr>
         </thead>
         <tbody>
         <tr th:each="personne : ${personnes}" >
             <th th:text="${personne.id}"> ID </th>
-            <th> Nom </th>
-            <th> Prenom </th>
-            <th> Age </th>
+            <th th:text="${personne.nom}"> Nom </th>
+            <th th:text="${personne.prenom}"> Prenom </th>
+            <th th:text="${personne.age}"> Age </th>
+            <th> <button> Supprimer</button> </th>
         </tr>
         </tbody>
     </table>
