@@ -10,6 +10,7 @@
 <body>
 <div id="article-main-content">
     <h2 class>Gestion des personnes</h2>
+    <button><a href=""></a> Ajouter </button>
     <table class="table">
         <thead>
         <tr>
@@ -27,7 +28,7 @@
             <th th:text="${personne.nom}"> Nom </th>
             <th th:text="${personne.prenom}"> Prenom </th>
             <th th:text="${personne.age}"> Age </th>
-            <th> <button> Supprimer</button> </th>
+            <th> <a th:href="@{/personne/afficher-personne/delete/{idSup}(idSup=${personne.id})}"> Supprimer</a> </th>
         </tr>
         </tbody>
     </table>

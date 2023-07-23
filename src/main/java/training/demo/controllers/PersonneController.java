@@ -32,5 +32,10 @@ public class PersonneController {
     }
 
 
-    public String deleteArticle(@PathVariable long id)
+    @GetMapping("/afficher-personne/delete/{id}")
+    public String deletePersonne(@PathVariable long id) throws Exception {
+        repository.remove(id);
+        return "redirect:/personne/afficher-personne";
+        // Question à Yanis:  Pourquoi ici on retourne une URL et pas le fichier
+    }
 }
