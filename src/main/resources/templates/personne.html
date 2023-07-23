@@ -13,13 +13,19 @@
     <table class="table">
         <thead>
         <tr>
-            <th></th>
+            <th> ID </th>
+            <th> Nom </th>
+            <th> Prenom </th>
+            <th> Age </th>
 
         </tr>
         </thead>
         <tbody>
-        <tr >
-            <td></td>
+        <tr th:each="personne : ${personnes}" >
+            <th th:text="${personne.id}"> ID </th>
+            <th> Nom </th>
+            <th> Prenom </th>
+            <th> Age </th>
         </tr>
         </tbody>
     </table>
