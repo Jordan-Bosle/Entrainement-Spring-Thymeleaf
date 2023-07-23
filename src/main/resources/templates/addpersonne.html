@@ -11,11 +11,20 @@
 <div id="article-main-content">
   <h2 class>Ajouter une personne</h2>
 
-  <form method="post" th:action="@{/personne/afficher-personne/add}" >
+  <form method="post" th:action="@{/personne/afficher-personne/addpersonne}" th:object="${formpersonne}" >
     <div class="mb-2">
-      <label >Prénom</label>
-      <input />
+      <label for="prenom" >Prénom</label>
+      <input type="text" th:field="*{prenom}" id="prenom" class="form-control"/>
+    </div>
 
+    <div class="mb-2">
+      <label for="nom" >Nom</label>
+      <input type="text" th:field="*{nom}" id="nom" class="form-control"/>
+    </div>
+
+    <div class="mb-2">
+      <label for="age" >Age</label>
+      <input type="text" th:field="*{age}" id="age" class="form-control"/>
     </div>
 
     <input type="submit" class="btn btn-primary" value="Ajouter">

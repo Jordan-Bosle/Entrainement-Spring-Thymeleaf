@@ -3,10 +3,10 @@ package training.demo.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import training.demo.entities.Personne;
+import training.demo.forms.FormPersonne;
 import training.demo.repositories.PersonneRepository;
 
 import java.util.List;
@@ -38,4 +38,25 @@ public class PersonneController {
         return "redirect:/personne/afficher-personne";
         // Question à Yanis:  Pourquoi ici on retourne une URL et pas le fichier
     }
+
+    @GetMapping("afficher-personne/addpersonne")
+    public String addP(@ModelAttribute("formpersonne") FormPersonne formPersonne ) {
+        return "addpersonne";
+    }
+
+    @PostMapping("afficher-personne/addpersonne")
+    public String addPersonne(@ModelAttribute("formpersonne") FormPersonne formPersonne, BindingResult results, Model model)
+    {
+        Personne personne = new Personne(
+                formPersonne.getId(),
+                formPersonne.getNom(),
+                formPersonne.getPrenom(),
+                formPersonne.getAge());
+
+        repository.saveOrUpdate(personne);
+        return "redirect:/personne/afficher-personne";
+    }
+
+
+
 }
